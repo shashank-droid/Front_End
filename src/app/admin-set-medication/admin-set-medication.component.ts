@@ -1,6 +1,7 @@
 import { Component, TemplateRef, ViewChild } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { BsModalRef, BsModalService} from 'ngx-bootstrap/modal';
+import {DataService} from '../data.service'
 
 
 @Component({
@@ -9,7 +10,7 @@ import { BsModalRef, BsModalService} from 'ngx-bootstrap/modal';
   styleUrl: './admin-set-medication.component.css'
 })
 export class AdminSetMedicationComponent {
-  constructor(public bsmodalref:BsModalRef, public bsmodalservice: BsModalService){}
+  constructor(public bsmodalref:BsModalRef, public bsmodalservice: BsModalService, private dat:DataService){}
   @ViewChild('templateDiv', { static: false }) templateDiv: TemplateRef<any> | undefined;
 
   setmed = new FormGroup({
@@ -51,6 +52,10 @@ export class AdminSetMedicationComponent {
   }
   hide(){
     this.bsmodalref.hide();
+  }
+  submit(){
+    this.dat.medication(this.setmed.value).subscribe();
+    this.opentemp();
   }
 
 }

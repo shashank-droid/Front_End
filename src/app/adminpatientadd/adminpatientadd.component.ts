@@ -43,7 +43,8 @@ constructor(public bsmodalref:BsModalRef, public bsmodalservice: BsModalService,
   submit(){
     this.dat.testapi(
       this.patientForm.value
-    ).subscribe()
+    ).subscribe();
+    this.opentemp();
   }
 
   // submitdiv(){
