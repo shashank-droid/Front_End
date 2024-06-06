@@ -16,3 +16,9 @@ body {
   span{
     font-size: medium;
   }
+  .reminder{
+    margin-bottom: 10px;
+    background-color: blue;
+    font-weight: 500;
+    color: white;
+  }
