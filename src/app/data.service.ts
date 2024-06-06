@@ -13,6 +13,8 @@ export class DataService {
   server_address = "http://localhost:5000/adddata";
   
   medication_server = "http://localhost:5000/medication"
+
+  all_data = "http://localhost:5000/alldata"
   
   testapi(data: any){
     return this.http.post(
@@ -26,6 +28,9 @@ export class DataService {
       this.medication_server,
       JSON.stringify(data)
     )
+  }
+  alldata(){
+    return this.http.get(this.all_data);
   }
 
 }
