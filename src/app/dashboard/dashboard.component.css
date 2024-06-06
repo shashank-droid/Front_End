@@ -167,3 +167,56 @@ input.searchInput::placeholder {
 .dotBrandGreen {
     background: #049D02;
 }
+
+.popup-near {
+  background-color: green;
+  color: white;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.popup-mid {
+  background-color: lightgreen;
+  color: white;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.popup-far {
+  background-color: #d4f5d4; /* Lightest green */
+  color: black;
+  padding: 5px;
+  border-radius: 5px;
+}
+/* Custom styles for the map popup */
+/* Custom styles for the map popup */
+.popup-near {
+    background-color: green;
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+  }
+  
+  .popup-mid {
+    background-color: lightgreen;
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+  }
+  
+  .popup-far {
+    background-color: #d4f5d4; /* Lightest green */
+    color: black;
+    padding: 5px;
+    border-radius: 5px;
+  }
+  
+  /* Highlight effect */
+  .marker-hover {
+    background-color: yellow !important;
+    color: black !important;
+    padding: 5px;
+    border-radius: 5px;
+    font-weight: bold;
+  }
+  
