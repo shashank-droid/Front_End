@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans');
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css'); /* Font Awesome CSS */
 
+/* Global styles */
 body {
     background-color: #f8f9fa;
     font-family: 'Open Sans', sans-serif;
@@ -17,7 +18,7 @@ body {
 
 h2 {
     color: #28a745;
-    margin-top: 0; /* Ensure no margin above the heading */
+    margin-top: 0;
 }
 
 .form-group {
@@ -28,7 +29,6 @@ label {
     font-weight: bold;
 }
 
-/* Form elements */
 input[type="text"],
 input[type="number"],
 input[type="email"],
@@ -52,7 +52,6 @@ textarea {
     width: 25%;
 }
 
-/* Search Box */
 .wrap {
     position: absolute;
     top: 20px;
@@ -96,25 +95,15 @@ textarea {
     background-color: #28a745;
 }
 
-/* Responsive styles */
-@media (max-width: 768px) {
-    .wrap {
-        position: relative;
-        margin-bottom: 20px; /* Add margin to create space between the search box and the heading */
-        text-align: right; /* Align the search box to the right */
-    }
-}
-
-span{
+span {
     color: red;
     font-weight: bolder;
 }
 
-.form-label{
+.form-label {
     margin-top: 15px;
 }
 
-/* Column layout for form labels */
 .row {
     display: flex;
     flex-wrap: wrap;
@@ -127,4 +116,22 @@ span{
     max-width: 50%;
     padding-right: 15px;
     padding-left: 15px;
+}
+
+
+/* Media query for small screens */
+@media (max-width: 768px) {
+    .wrap {
+        position: relative;
+        margin-bottom: 20px;
+        text-align: right;
+    }
+
+    .search-input {
+        width: 120px; /* Adjusted width for better fit on small screens */
+    }
+
+    .btn {
+        width: auto; /* Adjusted width for better fit on small screens */
+    }
 }
