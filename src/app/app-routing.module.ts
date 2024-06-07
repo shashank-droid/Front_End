@@ -26,7 +26,7 @@ const routes: Routes = [
   {path:'adminPatientadd', component:AdminpatientaddComponent},
   {path:'adminPatientDetails', component:AdminPatientDetailsComponent},
   {path:'adminSetMedication', component:AdminSetMedicationComponent},
-  {path:'emergencycomponent',component:EmergencyComponent}
+  {path:'emergencycomponent',component:EmergencyComponent},
 ];
 
 @NgModule({

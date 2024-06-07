@@ -1,23 +1,46 @@
-import { Component } from '@angular/core';
-import { AgGridAngular } from 'ag-grid-angular'; // Angular Data Grid Component
+import { Component, OnInit } from '@angular/core';
+import { PatientService } from '../patient.service';
+import { Patient } from '../patient.model';
 import { ColDef } from 'ag-grid-community';
+import * as FileSaver from 'file-saver';
+
 
 @Component({
   selector: 'app-admin-patient-details',
   templateUrl: './admin-patient-details.component.html',
-  styleUrl: './admin-patient-details.component.css'
+  styleUrls: ['./admin-patient-details.component.css']
 })
-export class AdminPatientDetailsComponent {
-  rowData = [
-    { make: "Tesla", model: "Model Y", price: 64950, electric: true },
-    { make: "Ford", model: "F-Series", price: 33850, electric: false },
-    { make: "Toyota", model: "Corolla", price: 29600, electric: false },
+export class AdminPatientDetailsComponent implements OnInit {
+  rowData: Patient[] = [];
+  colDefs: ColDef[] = [
+    { field: 'pid', headerName: 'ID' },
+    { field: 'patientName', headerName: 'Name' },
+    { field: 'emailId', headerName: 'Email' },
+    { field: 'mobile', headerName: 'Mobile' },
+    { field: 'age', headerName: 'Age' },
+    { field: 'admittedDate', headerName: 'Admitted Date' },
+    { field: 'uid', headerName: 'UID' },
+    { field: 'address', headerName: 'Address' },
+    { field: 'pinCode', headerName: 'Pincode' }
   ];
 
-   colDefs: ColDef[] = [
-   { field: "name", headerName:"name" },
-   { field: "ID", headerName:"email" },
-   { field: "mobile", headerName:"mobile" },
-   { field: "address", headerName:"address" }
- ];
+  constructor(private patientService: PatientService) { }
+
+  ngOnInit(): void {
+    this.patientService.getPatients().subscribe(data => {
+      this.rowData = data;
+    });
+  }
+
+  downloadPatients(): void {
+    const patientsCSV = this.convertToCSV(this.rowData);
+    const blob = new Blob([patientsCSV], { type: 'text/csv;charset=utf-8' });
+    FileSaver.saveAs(blob, 'patients.csv');
+  }
+
+  convertToCSV(data: any[]): string {
+    const header = Object.keys(data[0]).join(',');
+    const rows = data.map(patient => Object.values(patient).join(','));
+    return `${header}\n${rows.join('\n')}`;
+  }
 }
