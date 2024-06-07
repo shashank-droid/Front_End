@@ -10,18 +10,18 @@ import * as FileSaver from 'file-saver';
   templateUrl: './admin-patient-details.component.html',
   styleUrls: ['./admin-patient-details.component.css']
 })
+
 export class AdminPatientDetailsComponent implements OnInit {
   rowData: Patient[] = [];
   colDefs: ColDef[] = [
-    { field: 'pid', headerName: 'ID' },
-    { field: 'patientName', headerName: 'Name' },
-    { field: 'emailId', headerName: 'Email' },
-    { field: 'mobile', headerName: 'Mobile' },
-    { field: 'age', headerName: 'Age' },
-    { field: 'admittedDate', headerName: 'Admitted Date' },
-    { field: 'uid', headerName: 'UID' },
-    { field: 'address', headerName: 'Address' },
-    { field: 'pinCode', headerName: 'Pincode' }
+    { field: 'NAME', headerName: 'NAME' },
+    { field: 'EMAILID', headerName: 'EMAIL' },
+    { field: 'MOBILE', headerName: 'Mobile' },
+    { field: 'AGE', headerName: 'Age' },
+    { field: 'ADMITTEDDATE', headerName: 'Admitted Date' },
+    { field: 'UID', headerName: 'UID' },
+    { field: 'ADDRESS', headerName: 'Address' },
+    { field: 'PINCODE', headerName: 'Pincode' }
   ];
 
   constructor(private patientService: PatientService) { }
@@ -29,6 +29,7 @@ export class AdminPatientDetailsComponent implements OnInit {
   ngOnInit(): void {
     this.patientService.getPatients().subscribe(data => {
       this.rowData = data;
+      console.log(this.rowData)
     });
   }
 

@@ -76,31 +76,14 @@
            Recently admitted
           </div>
           <div class="card-body">
-            <table class="table" id="datatablesSimple">
-              <thead>
-                <tr>
-                  <th>Patient Id</th>
-                  <th>Patient Name</th>
-                  <th>Age</th>
-                  <th>Address</th>
-                  <th>Mobile</th>
-                  <th>UID/Aadhar</th>
-                  <th>Admitted Date</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>1002213</td>
-                  <td>Riyo Desoza</td>
-                  <td>35</td>
-                  <td>Delhi NCR</td>
-                  <td>7749320489</td>
-                  <td>887675739203</td>
-                  <td>2024/03/18</td>
-                </tr>
-                <!-- Add more rows as needed -->
-              </tbody>
-            </table>
+            <ag-grid-angular
+            style="width: 100%; height: 400px;"
+            class="ag-theme-alpine"
+            [rowData]="rowData"
+            [columnDefs]="colDefs"
+            rowSelection="single"
+          >
+          </ag-grid-angular>
           </div>
         </div>
       </div>

@@ -17,6 +17,9 @@ export class DataService {
   all_data = "http://localhost:5000/alldata"
 
   send_msg = "http://localhost:5000/send_sms"
+
+  reversealldata = "http://localhost:5000/alldatareverse"
+
   
   testapi(data: any){
     return this.http.post(
@@ -34,7 +37,9 @@ export class DataService {
   alldata(){
     return this.http.get(this.all_data);
   }
-
+  descdata(){
+    return this.http.get(this.reversealldata);
+  }
   sendsms(){
     return this.http.get<any>(this.send_msg);
   }

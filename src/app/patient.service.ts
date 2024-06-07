@@ -8,7 +8,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class PatientService {
 
-  private apiUrl = 'http://backend-api-url/patients'; 
+  private apiUrl = 'http://localhost:5000/alldata'; 
   constructor(private http: HttpClient) { }
   getPatients(): Observable<Patient[]> {
     return this.http.get<Patient[]>(this.apiUrl);
