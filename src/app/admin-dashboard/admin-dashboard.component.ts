@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 // import { GoogleMapsModule } from '@angular/google-maps'
-// import { DataService } from '../data.service'
+import { DataService } from '../data.service'
 
 @Component({
   selector: 'app-admin-dashboard',
@@ -9,10 +9,10 @@ import { Component } from '@angular/core';
 })
 export class AdminDashboardComponent {
 
-  constructor(){
+  constructor(private dat:DataService){
 
   }
-  // getapidata(){
-  //   this.data.getData()
-  // }
+  send_sms(){
+    this.dat.sendsms().subscribe();
+  }
 }
