@@ -117,8 +117,16 @@ span {
     padding-right: 15px;
     padding-left: 15px;
 }
+.danger{
+    background-color: #bcbcbc57; /* Danger red */
+    color: #333;
+}
 
-
+.danger:hover{
+    background-color: #bcbcbcae; /* Darker red on hover */
+    color: #333;
+    border: none;
+}
 /* Media query for small screens */
 @media (max-width: 768px) {
     .wrap {
